@@ -10,5 +10,16 @@
 
     <p>Hello. Welcome to the books page!</p>
 
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li>{{ book["title"] }}</li>
+        {% endfor %}
+        </ul>
+
+    {% else %}
+        <p>Books not found.</p>
+    {% endif %}
+
 </body>
 </html>

@@ -27,5 +27,8 @@ def books():
         {"id": 2, "title": "Book 2"},
         {"id": 3, "title": "Book 3"},
     ]
-    return render_template("books.html") #return html file located in templates
+    return render_template("books.html", books=books) 
+    # return html file located in templates
+    # passing books variable to page
+    # view using jinja language
 
