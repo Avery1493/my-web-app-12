@@ -2,7 +2,7 @@
 
 from flask import Blueprint, jsonify, render_template, request, redirect
 
-from web_app.models import db, Book #, parse_record
+from web_app.models import db, Book, parse_records
 
 # import from init file
 book_routes = Blueprint("book_routes", __name__)
@@ -19,7 +19,8 @@ def list_books():
     #     {"id": 3, "title": "Book 3"},
     # ]
     book_records = Book.query.all()
-    return jsonify(book_records)
+    books = parse_records(book_records)
+    return jsonify(books)
 
 @book_routes.route('/books') # home page
 def books():
