@@ -2,6 +2,7 @@
 
 ## RUN APP
 # one-time thing, to set the env var
+# WINDOWS
 set FLASK_APP=web_app
 flask run
 

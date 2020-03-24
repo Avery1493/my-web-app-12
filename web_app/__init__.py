@@ -6,6 +6,7 @@ from web_app.models import db, migrate
 
 from web_app.routes.home_routes import home_routes
 from web_app.routes.book_routes import book_routes
+from web_app.routes.twitter_routes import twitter_routes
 
 def create_app():
     # initilize flask app
@@ -21,9 +22,11 @@ def create_app():
     # register blueprint so app will know of routes
     app.register_blueprint(home_routes)
     app.register_blueprint(book_routes)
+    app.register_blueprint(twitter_routes)
 
     return app
 
 if __name__ == "__main__":
+    # run app
     my_app = create_app()
     my_app.run(debug=True)
