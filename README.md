@@ -12,3 +12,7 @@ flask db init
 flask db migrate 
 # creates the specified tables
 flask db upgrade 
+
+# INSTALL PACKAGES
+pipenv install Flask Flask-SQLAlchemy Flask-Migrate
+pipenv install python-dotenv requests basilica tweepy

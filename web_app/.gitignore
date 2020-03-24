@@ -1,4 +1,7 @@
 
-# ignore developemt database
+# ignore developemt database:
 *.db
 *.sqlite3
+
+# ignore secret credentials:
+.env
