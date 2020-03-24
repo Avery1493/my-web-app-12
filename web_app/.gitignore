@@ -1,0 +1,4 @@
+
+# ignore developemt database
+*.db
+*.sqlite3
