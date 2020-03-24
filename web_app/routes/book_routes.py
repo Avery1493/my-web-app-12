@@ -1,6 +1,6 @@
 # web_app/routes/book_routes.py
 
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, jsonify, render_template, request
 
 # import from init file
 book_routes = Blueprint("book_routes", __name__)
@@ -31,4 +31,19 @@ def books():
     # return html file located in templates
     # passing books variable to page
     # view using jinja language
+
+@book_routes.route("/books/new")
+def new_book():
+    return render_template("new_book.html")
+
+@book_routes.route("/books/create", methods=["POST"])
+def create_book():
+    print("FORM DATA:", dict(request.form))
+    # todo: store in database
+    return jsonify({
+        "message": "BOOK CREATED OK (TODO)",
+        "book": dict(request.form)
+    })
+    #flash(f"Book '{new_book.title}' created successfully!", "success")
+    #return redirect(f"/books")
 
