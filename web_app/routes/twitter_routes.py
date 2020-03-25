@@ -7,7 +7,7 @@ from web_app.services.twitter_service import twitter_api_client
 from web_app.models import db, User, Tweet, parse_records
 from web_app.services.basilica_service import basilica_api_client
 
-# import from init file
+# import from __init__ file
 twitter_routes = Blueprint("twitter_routes", __name__)
 
 
@@ -59,7 +59,7 @@ def store_twitter_user_data(screen_name):
 
 
 # stacking decoratores
-# returns same thing on each page
+# returns same thing on both pagess
 @twitter_routes.route("/users")
 @twitter_routes.route("/users.json")
 def list_users():
@@ -73,7 +73,7 @@ def get_user(screen_name=None):
     print(screen_name)
     db_user, statuses = store_twitter_user_data(screen_name)
     # Display information about the user on html page
-    # Pass uuser and tweet information to the page
+    # Pass user and tweet information to the page
     return render_template("user.html", 
     user=db_user, 
-    tweets=statuses) # tweets=db_tweets
+    tweets=statuses)
