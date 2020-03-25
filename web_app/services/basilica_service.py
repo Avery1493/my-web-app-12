@@ -9,18 +9,20 @@ load_dotenv()
 
 API_KEY = os.getenv("BASCILICA_API_KEY")
 
-connection = basilica.Connection(API_KEY)
+def basilica_api_client():
+    connection = basilica.Connection(API_KEY)
+    print(type(connection))
+    return connection
+
 
 if __name__ == "__main__":
-    print(type(connection))
     print("----------")
-
+    connection = basilica_api_client()
 
     sentence = "Hello again!"
     print(sentence)
     embeddings = connection.embed_sentence(sentence)
     print("----------")
-
 
     sentences = ["Hello world!", "How are you?"]
     print(sentences)
