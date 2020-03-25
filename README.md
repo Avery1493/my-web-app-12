@@ -3,7 +3,7 @@
 ## RUN APP
 # one-time thing, to set the env var
 # WINDOWS
-set FLASK_APP=web_app
+set FLASK_APP=web_app  
 flask run
 
 ## MIGRATE TO DATABASE
@@ -15,5 +15,6 @@ flask db migrate
 flask db upgrade 
 
 # INSTALL PACKAGES
-pipenv install Flask Flask-SQLAlchemy Flask-Migrate
-pipenv install python-dotenv requests basilica tweepy
+pipenv install Flask Flask-SQLAlchemy Flask-Migrate  
+pipenv install python-dotenv requests basilica tweepy  
+pipenv install scikit-learn

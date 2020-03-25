@@ -11,16 +11,13 @@ from web_app.services.basilica_service import basilica_api_client
 twitter_routes = Blueprint("twitter_routes", __name__)
 
 
-@twitter_routes.route('/users/<screen_name>')
-def get_user(screen_name=None):
-    print(screen_name)
-
+def store_twitter_user_data(screen_name):
     api = twitter_api_client()
 
     twitter_user = api.get_user(screen_name)
     statuses = api.user_timeline(screen_name, tweet_mode="extended", 
     count=150, exclude_replies=True, include_rts=False)
-    #return jsonify({"user": user._json, "tweets": [s._json for s in statuses]})
+    # return jsonify({"user": user._json, "tweets": [s._json for s in statuses]})
 
     # store users 
     db_user = User.query.get(twitter_user.id) or User(id=twitter_user.id)
@@ -57,8 +54,26 @@ def get_user(screen_name=None):
         db.session.add(db_tweet)
         counter+=1
     db.session.commit()
-    breakpoint()
-    return "OK"
+
+    return db_user, statuses
 
 
-    # return render_template("user.html", user=db_user, tweets=statuses) # tweets=db_tweets
+# stacking decoratores
+# returns same thing on each page
+@twitter_routes.route("/users")
+@twitter_routes.route("/users.json")
+def list_users():
+    db_users = User.query.all()
+    users_response = parse_records(db_users)
+    return jsonify(users_response)
+
+
+@twitter_routes.route('/users/<screen_name>')
+def get_user(screen_name=None):
+    print(screen_name)
+    db_user, statuses = store_twitter_user_data(screen_name)
+    # Display information about the user on html page
+    # Pass uuser and tweet information to the page
+    return render_template("user.html", 
+    user=db_user, 
+    tweets=statuses) # tweets=db_tweets
