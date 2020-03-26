@@ -37,3 +37,8 @@ heroku addons:create heroku-postgresql:hobby-dev
 heroku config
 heroku logs
 heroku logs --tail
+
+heroku run "FLASK_APP=web_app flask db init"
+heroku run "FLASK_APP=web_app flask db stamp head"
+heroku run "FLASK_APP=web_app flask db migrate"
+heroku run "FLASK_APP=web_app flask db upgrade"
