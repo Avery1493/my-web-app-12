@@ -4,7 +4,7 @@
 <html>
   <head>
     {% block title %}
-      <title>My Starter Web App | Helps students learn how to use the Flask Python package.</title>
+      <title>🕊️ TwittOff</title>
     {% endblock %}
   </head>
 
@@ -13,27 +13,52 @@
     <!-- SITE NAVIGATION -->
     <div class="container">
       <div id="nav">
+        <style> 
+          ul#navbar {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color:rgb(0, 172, 149);
+          }
+          ul#navbar li {
+          float: left;
+          font-size:25px;
+          }
+          ul#navbar li a {
+          display: block;
+          color: black;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          }
+          ul#navbar li a:hover {
+          background-color: rgb(0, 129, 129);
+          }
+      
+        </style> 
         {% block nav %}
-          <h1><a href="/">My Web App</a></h1>
-          <ul>
-            <li><a href="/books">Books Page</a></li>
-            <li><a href="/books/new">New Book Form</a></li>
+          <ul id="navbar">
+            <li><a href="/">TwittOff</a></li>
+            <li><a href="/predict">Prediction</a></li>
+            <li><a href="/books">Book Survey</a></li>
           </ul>
         {% endblock %}
       </div>
-      <hr>
 
       <!-- PAGE CONTENTS -->
       <div id="content">
         {% block content %}
+        <p>This is a web application designed to predict which Twitter User 
+          is more likely to post a certain tweet.</p>
         {% endblock %}
       </div>
 
       <!-- FOOTER -->
       <div id="footer">
         <hr>
-        &copy; Copyright 2019 Prof. MJ Rossetti |
-        <a href="https://github.com/prof-rossetti/">source</a>
+        &copy; Copyright 2020 Avery Quinn |
+        <a href="https://github.com/Avery1493/my-web-app-12">git source</a>
       </div>
     </div>
 

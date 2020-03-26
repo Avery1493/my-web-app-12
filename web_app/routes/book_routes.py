@@ -49,7 +49,7 @@ def create_book():
     #     "message": "BOOK CREATED OK (TODO)",
     #     "book": dict(request.form)
     #})
-    new_book = Book(title=request.form["title"], author_id=request.form["author_name"])
+    new_book = Book(title=request.form["title"], author_id=request.form["author"])
     print("new_book")
     db.session.add(new_book)
     db.session.commit()

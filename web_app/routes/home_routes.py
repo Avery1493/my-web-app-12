@@ -11,6 +11,11 @@ home_routes = Blueprint("home_routes", __name__)
 @home_routes.route('/') # home page
 def index():
     print("Visit the Prediction Page")
+    return render_template("layout.html") 
+
+@home_routes.route('/predict') # home page
+def predict():
+    print("Visit the Prediction Page")
     return render_template("predict.html")
 
 # attach route to blueprint object instead of app directly

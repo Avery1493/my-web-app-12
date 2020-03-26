@@ -4,21 +4,17 @@
     
     <h2>New Book Form</h2>
 
-    <a href="/books">Books Page</a>
+    <a href="/books">Book Survey</a>
 
-    <p>Hello. use this form to create a new book...</p>
+    <p>Enter your favorite book...</p>
 
     <form action="/books/create" method="POST">
 
         <label>Title:</label>
-        <input type="text" name="title" placeholder="Book XYZ" value="Book XYZ">
+        <input type="text" name="title" placeholder="A Study in Scarlet" value="A Study in Scarlet">
 
         <label>Author:</label>
-        <select name="author_name">
-          <option value="A1">Author 1</option>
-          <option value="A2">Author 2</option>
-          <option value="A3">Author 3</option>
-        </select>
+        <input type="text" name="author" placeholder="Arthur Conan Doyle" value="Arthur Conan Doyle">
 
         <button>Submit</button>
     </form>
