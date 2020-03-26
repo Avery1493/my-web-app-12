@@ -16,7 +16,7 @@ def store_twitter_user_data(screen_name):
 
     twitter_user = api.get_user(screen_name)
     statuses = api.user_timeline(screen_name, tweet_mode="extended", 
-    count=150, exclude_replies=True, include_rts=False)
+    count=200, exclude_replies=True, include_rts=False)
     # return jsonify({"user": user._json, "tweets": [s._json for s in statuses]})
 
     # store users 

@@ -26,7 +26,7 @@ def seed_db():
     # TODO: refactor the existing user and tweet storage logic from our twitter_routes into a re-usable function
     # ... so we can "seed" our database with some example users and tweets
     # ... to ensure that it is ready to make predictions later
-    default_users = ["elonmusk","s2t2", "AveryQuinn1493","nbcnews"]
+    default_users = ["elonmusk","s2t2", "AveryQuinn1493", "nbcnews"]
     for screen_name in default_users:
         db_user, statuses = store_twitter_user_data(screen_name)
 
